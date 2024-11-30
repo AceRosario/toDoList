@@ -1,15 +1,22 @@
 function addText(input) {
-   return input;
+  return input;
 }
 
+let messages = [];
+
 function outputText(text) {
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = `<h3>${text}</h3>`;
+  let output = document.getElementById("output");
+  messages.push(text);
+  output.innerHTML = "";
+
+  messages.forEach((message) => {
+    output.innerHTML += message + "<br>";
+  });
 }
 
 function submit() {
-    const inputField = document.getElementById('text');
-    const inputValue = inputField.value;
-    const processedText = addText(inputValue);
-    outputText(processedText);
+  const input = document.getElementById("text");
+  const valueOfText = input.value;
+  const processedText = addText(valueOfText);
+  outputText(processedText);
 }
